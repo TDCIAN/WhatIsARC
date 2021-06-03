@@ -271,3 +271,7 @@ print(room?.host) // nil
 room = nil // Room 인스턴스의 참조 횟수: 0
 // Room 505 is being deinitialized
 ```
+- 위 코드에서는 Room 클래스의 host 프로퍼티가 약한참조를 하도록 weak 키워드를 추가하여 정의했습니다.
+- 각각의 Person과 Room 인스턴스는 yagom과 room 변수에 할당할 때 참조 횟수가 1이 되는 것은 이전 코드와 동일합니다.
+- 그러나 room 변수가 참조하는 인스턴스를 host 프로퍼티에 참조하도록 할 때 참조 횟수는 증가하지 않습니다.
+- 그렇지만 yagom이 참조하는 인스턴스의 room 프로퍼티는 강한참조를 하므로 인스턴스의 참조 횟수는 1 증가하게 됩니다.
